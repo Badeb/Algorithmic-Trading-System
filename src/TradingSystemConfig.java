@@ -3,11 +3,10 @@ public class TradingSystemConfig {
     private double riskLimit; //How many % should the pricr drop to trigger a sell order
     private double thresholdValue; // How far above the SMA the current price must be to trigger a BUY signal
     private String strategyType; //Short term or Long
-
-    private String filePath;
-    private String outputDirectory;
-
-    private static TradingSystemConfig instance = null;
+    private String filePath; // It shows where to read the data from.
+    private String outputDirectory; // where to write the results
+    private static volatile TradingSystemConfig instance = null;
+    // using volatile keyword because of if there are two thread at the same time.
 
     private TradingSystemConfig() {
         this.riskLimit = 0.05;
@@ -18,8 +17,16 @@ public class TradingSystemConfig {
 
     }
     public static TradingSystemConfig getInstance() {
-        if(instance == null){
-            instance = new TradingSystemConfig();
+        if (instance == null) {  // First control
+            synchronized (TradingSystemConfig.class) { // get lock
+                if (instance == null) { // second control
+                    instance = new TradingSystemConfig();
+                }
+            }
+
+            // `volatile` alone does not provide atomic object creation.
+            // `synchronize` alone will lock every call, slowing things down.
+            // Both work correctly and efficiently together.
         }
         return instance;
     }
