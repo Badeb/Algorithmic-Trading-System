@@ -6,7 +6,7 @@ public class Main {
         // Singleton: global ayarlar
         TradingSystemConfig config = TradingSystemConfig.getInstance();
 
-        // file path
+        // File path
         config.setFilePath("market_data.json");
 
         // Risk limit

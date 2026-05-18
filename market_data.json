@@ -1,29 +1,47 @@
 [
   {
-    "symbol": "AAPL",
-    "open": 150,
-    "high": 155,
-    "low": 148,
-    "close": 152,
-    "volume": 1000000,
-    "timestamp": "2025-05-01"
+    "symbol": "TSLA",
+    "open": 172,
+    "high": 178,
+    "low": 170,
+    "close": 176,
+    "volume": 2100000,
+    "timestamp": "2025-05-10"
   },
   {
-    "symbol": "AAPL",
-    "open": 152,
-    "high": 158,
-    "low": 151,
-    "close": 157,
-    "volume": 1200000,
-    "timestamp": "2025-05-02"
+    "symbol": "TSLA",
+    "open": 176,
+    "high": 181,
+    "low": 174,
+    "close": 180,
+    "volume": 2500000,
+    "timestamp": "2025-05-11"
   },
   {
-    "symbol": "AAPL",
-    "open": 157,
-    "high": 160,
-    "low": 154,
-    "close": 159,
-    "volume": 1100000,
-    "timestamp": "2025-05-03"
+    "symbol": "TSLA",
+    "open": 180,
+    "high": 184,
+    "low": 177,
+    "close": 182,
+    "volume": 2300000,
+    "timestamp": "2025-05-12"
+  },
+  {
+    "symbol": "TSLA",
+    "open": 182,
+    "high": 186,
+    "low": 179,
+    "close": 185,
+    "volume": 2400000,
+    "timestamp": "2025-05-13"
+  },
+  {
+    "symbol": "TSLA",
+    "open": 185,
+    "high": 188,
+    "low": 181,
+    "close": 183,
+    "volume": 2200000,
+    "timestamp": "2025-05-14"
   }
 ]
