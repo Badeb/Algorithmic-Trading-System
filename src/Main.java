@@ -30,6 +30,18 @@ public class Main {
         AnalysisEngine atrEngine = new ATREngine(3);
         atrEngine.analyse();
 
+        System.out.println("\n--- Observer Notifications ---");
+
+        MarketEventPublisher publisher = new MarketEventPublisher();
+
+        publisher.addObserver(new DashboardObserver());
+        publisher.addObserver(new RiskAnalysisObserver());
+
+        publisher.notifyObservers("SMA signal generated.");
+        publisher.notifyObservers("ATR risk analysis completed.");
+
+
+
         System.out.println("\n=== System Finished ===");
     }
 }
