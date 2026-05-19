@@ -40,6 +40,37 @@ public class Main {
         publisher.notifyObservers("SMA signal generated.");
         publisher.notifyObservers("ATR risk analysis completed.");
 
+        System.out.println("\n--- Command Pattern Trade Execution ---");
+
+     // Example values for trade execution
+        String symbol = "AAPL";
+        double currentPrice = 185.0;
+        double sma = 180.0;
+        int quantity = 10;
+
+       // TradeExecutor runs the given command
+        TradeExecutor tradeExecutor = new TradeExecutor();
+
+     // If current price is higher than SMA, system gives buy signal
+        if (currentPrice > sma) {
+            TradeCommand buyCommand = new BuyCommand(symbol, currentPrice, quantity);
+            tradeExecutor.executeCommand(buyCommand);
+        }
+     // Otherwise, system gives sell signal
+        else {
+            TradeCommand sellCommand = new SellCommand(symbol, currentPrice, quantity);
+            tradeExecutor.executeCommand(sellCommand);
+        }
+
+        // Risk control example
+        double buyPrice = 200.0;
+        double lossRate = ((buyPrice - currentPrice) / buyPrice) * 100;
+        // If loss rate is higher than risk limit, position is closed
+        if (lossRate > config.getRiskLimit()) {
+            TradeCommand closeCommand = new ClosePositionCommand(symbol, currentPrice);
+            tradeExecutor.executeCommand(closeCommand);
+        }
+
 
 
         System.out.println("\n=== System Finished ===");
