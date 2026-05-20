@@ -1,47 +1,32 @@
 [
-  {
-    "symbol": "TSLA",
-    "open": 172,
-    "high": 178,
-    "low": 170,
-    "close": 176,
-    "volume": 2100000,
-    "timestamp": "2025-05-10"
-  },
-  {
-    "symbol": "TSLA",
-    "open": 176,
-    "high": 181,
-    "low": 174,
-    "close": 180,
-    "volume": 2500000,
-    "timestamp": "2025-05-11"
-  },
-  {
-    "symbol": "TSLA",
-    "open": 180,
-    "high": 184,
-    "low": 177,
-    "close": 182,
-    "volume": 2300000,
-    "timestamp": "2025-05-12"
-  },
-  {
-    "symbol": "TSLA",
-    "open": 182,
-    "high": 186,
-    "low": 179,
-    "close": 185,
-    "volume": 2400000,
-    "timestamp": "2025-05-13"
-  },
-  {
-    "symbol": "TSLA",
-    "open": 185,
-    "high": 188,
-    "low": 181,
-    "close": 183,
-    "volume": 2200000,
-    "timestamp": "2025-05-14"
-  }
+  {"symbol":"AAPL","open":182,"high":185,"low":180,"close":184,"volume":1200000,"timestamp":"2025-04-01"},
+  {"symbol":"AAPL","open":184,"high":186,"low":181,"close":183,"volume":1150000,"timestamp":"2025-04-02"},
+  {"symbol":"AAPL","open":183,"high":187,"low":182,"close":186,"volume":1300000,"timestamp":"2025-04-03"},
+  {"symbol":"AAPL","open":186,"high":189,"low":184,"close":188,"volume":1250000,"timestamp":"2025-04-04"},
+  {"symbol":"AAPL","open":188,"high":190,"low":185,"close":187,"volume":1400000,"timestamp":"2025-04-05"},
+  {"symbol":"AAPL","open":187,"high":191,"low":186,"close":190,"volume":1500000,"timestamp":"2025-04-06"},
+  {"symbol":"AAPL","open":190,"high":193,"low":188,"close":192,"volume":1600000,"timestamp":"2025-04-07"},
+  {"symbol":"AAPL","open":192,"high":194,"low":189,"close":191,"volume":1550000,"timestamp":"2025-04-08"},
+  {"symbol":"AAPL","open":191,"high":195,"low":190,"close":194,"volume":1650000,"timestamp":"2025-04-09"},
+  {"symbol":"AAPL","open":194,"high":197,"low":192,"close":196,"volume":1700000,"timestamp":"2025-04-10"},
+  {"symbol":"AAPL","open":196,"high":198,"low":193,"close":195,"volume":1680000,"timestamp":"2025-04-11"},
+  {"symbol":"AAPL","open":195,"high":199,"low":194,"close":198,"volume":1750000,"timestamp":"2025-04-12"},
+  {"symbol":"AAPL","open":198,"high":201,"low":196,"close":200,"volume":1800000,"timestamp":"2025-04-13"},
+  {"symbol":"AAPL","open":200,"high":203,"low":198,"close":202,"volume":1820000,"timestamp":"2025-04-14"},
+  {"symbol":"AAPL","open":202,"high":204,"low":199,"close":201,"volume":1780000,"timestamp":"2025-04-15"},
+  {"symbol":"AAPL","open":201,"high":205,"low":200,"close":204,"volume":1850000,"timestamp":"2025-04-16"},
+  {"symbol":"AAPL","open":204,"high":207,"low":202,"close":206,"volume":1900000,"timestamp":"2025-04-17"},
+  {"symbol":"AAPL","open":206,"high":208,"low":203,"close":205,"volume":1880000,"timestamp":"2025-04-18"},
+  {"symbol":"AAPL","open":205,"high":209,"low":204,"close":208,"volume":1950000,"timestamp":"2025-04-19"},
+  {"symbol":"AAPL","open":208,"high":211,"low":206,"close":210,"volume":2000000,"timestamp":"2025-04-20"},
+  {"symbol":"AAPL","open":210,"high":212,"low":207,"close":209,"volume":1980000,"timestamp":"2025-04-21"},
+  {"symbol":"AAPL","open":209,"high":213,"low":208,"close":212,"volume":2050000,"timestamp":"2025-04-22"},
+  {"symbol":"AAPL","open":212,"high":215,"low":210,"close":214,"volume":2100000,"timestamp":"2025-04-23"},
+  {"symbol":"AAPL","open":214,"high":216,"low":211,"close":213,"volume":2080000,"timestamp":"2025-04-24"},
+  {"symbol":"AAPL","open":213,"high":217,"low":212,"close":216,"volume":2150000,"timestamp":"2025-04-25"},
+  {"symbol":"AAPL","open":216,"high":219,"low":214,"close":218,"volume":2200000,"timestamp":"2025-04-26"},
+  {"symbol":"AAPL","open":218,"high":220,"low":215,"close":217,"volume":2180000,"timestamp":"2025-04-27"},
+  {"symbol":"AAPL","open":217,"high":221,"low":216,"close":220,"volume":2250000,"timestamp":"2025-04-28"},
+  {"symbol":"AAPL","open":220,"high":223,"low":218,"close":222,"volume":2300000,"timestamp":"2025-04-29"},
+  {"symbol":"AAPL","open":222,"high":225,"low":220,"close":224,"volume":2350000,"timestamp":"2025-04-30"}
 ]
