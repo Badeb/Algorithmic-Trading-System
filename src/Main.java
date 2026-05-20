@@ -1,4 +1,4 @@
-public class Main {
+    public class Main {
     public static void main(String[] args) {
 
         System.out.println("=== Algorithmic Trading System Started ===");
@@ -23,11 +23,12 @@ public class Main {
         System.out.println("Strategy: " + config.getStrategyType());
 
         System.out.println("\n--- SMA Analysis ---");
-        AnalysisEngine smaEngine = new SMAEngine(3);
+        SMAEngine smaEngine = new SMAEngine(3);
         smaEngine.analyse();
 
+
         System.out.println("\n--- ATR Risk Analysis ---");
-        AnalysisEngine atrEngine = new ATREngine(3);
+        ATREngine atrEngine = new ATREngine(3);
         atrEngine.analyse();
 
         System.out.println("\n--- Observer Notifications ---");
@@ -43,9 +44,9 @@ public class Main {
         System.out.println("\n--- Command Pattern Trade Execution ---");
 
      // Example values for trade execution
-        String symbol = "AAPL";
-        double currentPrice = 185.0;
-        double sma = 180.0;
+        String symbol       = smaEngine.getLastSymbol();
+        double currentPrice = smaEngine.getLastClose();
+        double sma          = smaEngine.getSmaResult();
         int quantity = 10;
 
        // TradeExecutor runs the given command

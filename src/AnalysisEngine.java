@@ -2,6 +2,15 @@ import java.util.List;
 
 abstract class AnalysisEngine {         // template class
     protected List<MarketData> data;
+    public double getLastClose() {
+        if (data == null || data.isEmpty()) return Double.NaN;
+        return data.get(data.size() - 1).getClose();
+    }
+    public String getLastSymbol() {
+        if (data == null || data.isEmpty()) return "";
+        return data.get(data.size() - 1).getSymbol();
+    }
+
 
     public void analyse(){              // template method
         loadData();
@@ -41,7 +50,9 @@ class SMAEngine extends AnalysisEngine{
         this.period = period;
     }
 
-
+    public double getSmaResult() {
+        return smaResult;
+    }
 
     @Override
     protected void calculate() {
@@ -99,6 +110,10 @@ class ATREngine extends AnalysisEngine{
     public ATREngine(  int period){
 
         this.period = period;
+    }
+
+    public double getAtrResult() {
+        return atrResult;
     }
 
     @Override
