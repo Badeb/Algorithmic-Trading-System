@@ -25,10 +25,12 @@ public class TradingSystemFacade {
         config.setThresholdValue(0.0);
         config.setStrategyType("Short-Term");
 
+
         System.out.println("File Path: " + config.getFilePath());
         System.out.println("Risk Limit: " + config.getRiskLimit());
         System.out.println("Strategy: " + config.getStrategyType());
     }
+
 
     // Runs SMA and ATR analysis engines
     // SMAEngine is returned because trade commands use its results
@@ -110,5 +112,6 @@ public class TradingSystemFacade {
         } else {
             System.out.println("Risk decision: Risk limit is not exceeded, position stays open.");
         }
+
     }
 }

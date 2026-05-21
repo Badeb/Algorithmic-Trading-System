@@ -4,7 +4,6 @@ public class TradingSystemConfig {
     private double thresholdValue; // How far above the SMA the current price must be to trigger a BUY signal
     private String strategyType; //Short term or Long
     private String filePath; // It shows where to read the data from.
-    private String outputDirectory; // where to write the results
     private static volatile TradingSystemConfig instance = null;
     // using volatile keyword because of if there are two thread at the same time.
 
@@ -13,7 +12,7 @@ public class TradingSystemConfig {
         this.thresholdValue = 0.0;
         this.strategyType = "Short-Term";
         this.filePath = "data/market_data.json";
-        this.outputDirectory = "output/";
+
 
     }
     public static TradingSystemConfig getInstance() {
@@ -64,13 +63,4 @@ public class TradingSystemConfig {
         this.filePath = filePath;
     }
 
-    public String getOutputDirectory() {
-        return outputDirectory;
-    }
-
-    public void setOutputDirectory(String outputDirectory) {
-        this.outputDirectory = outputDirectory;
-    }
-
-
-}
+ }

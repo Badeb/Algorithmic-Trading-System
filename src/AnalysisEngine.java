@@ -2,21 +2,24 @@ import java.util.List;
 
 abstract class AnalysisEngine {         // template class
     protected List<MarketData> data;
+
     public double getLastClose() {
         if (data == null || data.isEmpty()) return Double.NaN;
         return data.get(data.size() - 1).getClose();
     }
+
     public String getLastSymbol() {
         if (data == null || data.isEmpty()) return "";
         return data.get(data.size() - 1).getSymbol();
     }
+
     public double getFirstClose() {
         if (data == null || data.isEmpty()) return Double.NaN;
         return data.get(0).getClose();
     }
 
 
-    public void analyse(){              // template method
+    public void analyse() {              // template method
         loadData();
         if (data == null || data.isEmpty()) { // empty control block
             System.err.println("No data loaded, analysis aborted.");
@@ -28,7 +31,8 @@ abstract class AnalysisEngine {         // template class
 
 
     }
-    protected void loadData(){ // this step same all subclasses
+
+    protected void loadData() { // this step same all subclasses
         TradingSystemConfig config = TradingSystemConfig.getInstance();
         String filePath = config.getFilePath(); // get file path from config object
 
@@ -36,20 +40,22 @@ abstract class AnalysisEngine {         // template class
         data = format.read();
 
     }
+
     protected abstract void calculate();
+
     protected abstract void generateSignal();
     // these steps different for each class so using "abstract" keyword
 
 }
 
-class SMAEngine extends AnalysisEngine{
+class SMAEngine extends AnalysisEngine {
     // SMA Formula: latest N day close value average
 
     private int period; // number of period
-    private double smaResult= Double.NaN; // prefer Nan to 0.0
+    private double smaResult = Double.NaN; // prefer Nan to 0.0
 
 
-    public SMAEngine ( int period){
+    public SMAEngine(int period) {
 
         this.period = period;
     }
@@ -64,17 +70,15 @@ class SMAEngine extends AnalysisEngine{
             System.err.println("Not enough data: need " + period + ", have " + data.size());
             return;
         }
-        double sum =0;
+        double sum = 0;
         int start = data.size() - period;
 
-
-
-        for(int i =start; i< data.size(); i++){
+        for (int i = start; i < data.size(); i++) {
             sum += data.get(i).getClose();
 
             // getClose give close value the day
         }
-        smaResult = sum/period; // get average
+        smaResult = sum / period; // get average
 
     }
 
@@ -82,7 +86,7 @@ class SMAEngine extends AnalysisEngine{
     protected void generateSignal() {
         TradingSystemConfig config = TradingSystemConfig.getInstance(); // singleton provide create only one config object
         double threshold = config.getThresholdValue(); // get threshold value from singleton object
-        double lastDayClose = data.get(data.size()-1 ).getClose();
+        double lastDayClose = data.get(data.size() - 1).getClose();
 
         if (Double.isNaN(smaResult)) {
             System.err.println("Calculate incomplete. Signal can not generate");
@@ -90,10 +94,10 @@ class SMAEngine extends AnalysisEngine{
         }
 
 
-        if (lastDayClose > smaResult + threshold ) {
+        if (lastDayClose > smaResult + threshold) {
             System.out.println("SIGNAL: BUY — price is above SMA");  // trend is up buy signal
 
-        }else if (lastDayClose < smaResult - threshold ){
+        } else if (lastDayClose < smaResult - threshold) {
             System.out.println("SIGNAL: SELL — price is below SMA"); // trend is low sell signal
 
         } else {
@@ -104,25 +108,21 @@ class SMAEngine extends AnalysisEngine{
 }
 
 
-class ATREngine extends AnalysisEngine{
+class ATREngine extends AnalysisEngine {
     // ATR Formula =  ATR measures market volatility by calculating the average of True Range values over n periods.
     private int period;
     private double atrResult = Double.NaN;
     // using Nan because it can be threaded problem for example: firstly calculate method return
     // so atrResult= 0.0 so that it will create wrong generate signal
 
-    public ATREngine(  int period){
-
+    public ATREngine(int period) {
         this.period = period;
     }
 
-    public double getAtrResult() {
+    /*public double getAtrResult() {
         return atrResult;
-    }
-    public double getFirstClose() {
-        if (data == null || data.isEmpty()) return Double.NaN;
-        return data.get(0).getClose();
-    }
+    }*/
+
 
     @Override
     protected void calculate() {
@@ -130,9 +130,8 @@ class ATREngine extends AnalysisEngine{
             System.err.println("ATR requires period > 1 ");
             return;
         }
-        double trueRangeSum =0;
+        double trueRangeSum = 0;
         int start = data.size() - period;
-
 
 
         for (int i = start + 1; i < data.size(); i++) {
@@ -141,13 +140,13 @@ class ATREngine extends AnalysisEngine{
             double prevClose = data.get(i - 1).getClose(); // last day close value
 
             double trueRange = Math.max(high - low, Math.max(Math.abs(high - prevClose), Math.abs(low - prevClose)));
-             //  get maximum value :
+            //  get maximum value :
             //  current day difference, current day high - previous day closest , current day low - previous day closest
             trueRangeSum += trueRange;
         }
-        atrResult = trueRangeSum / (period-1);
+        atrResult = trueRangeSum / (period - 1);
 
-        }
+    }
 
     @Override
     protected void generateSignal() {
@@ -159,9 +158,9 @@ class ATREngine extends AnalysisEngine{
             return; // if you give wrong signal error message
         }
 
-        if (riskLimit < atrResult){
+        if (riskLimit < atrResult) {
             System.out.println("SIGNAL: HIGH RISK!  market is too volatile, avoid trading");
-        }else{
+        } else {
             System.out.println("SIGNAL: LOW RISK, market is stable safe to trade");
         }
 

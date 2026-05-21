@@ -1,13 +1,14 @@
 // Interface for all trade commands
 interface TradeCommand {
     void execute();
+
 }
 
 // Buy command class
 class BuyCommand implements TradeCommand {
-    String symbol;
-    double price;
-    int quantity;
+    private String symbol;
+    private double price;
+    private int quantity;
 
     public BuyCommand(String symbol, double price, int quantity) {
         this.symbol = symbol;
@@ -18,14 +19,15 @@ class BuyCommand implements TradeCommand {
     // Runs buy operation
     public void execute() {
         System.out.println("Buying " + quantity + " " + symbol + " stocks at price: " + price);
+
     }
 }
 
 // Sell command class
 class SellCommand implements TradeCommand {
-    String symbol;
-    double price;
-    int quantity;
+    private String symbol;
+    private double price;
+    private int quantity;
 
     public SellCommand(String symbol, double price, int quantity) {
         this.symbol = symbol;
@@ -41,8 +43,8 @@ class SellCommand implements TradeCommand {
 
 // This command closes the position when risk is high
 class ClosePositionCommand implements TradeCommand {
-    String symbol;
-    double price;
+    private  String symbol;
+    private double price;
 
     public ClosePositionCommand(String symbol, double price) {
         this.symbol = symbol;
