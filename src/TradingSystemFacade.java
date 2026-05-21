@@ -2,10 +2,10 @@
 // It hides configuration, analysis, observer and command details from Main
 public class TradingSystemFacade {
 
-    public void startSystem() {
+    public void startSystem(String filePath) {
         System.out.println("=== Algorithmic Trading System Started ===");
 
-        setupConfiguration();
+        setupConfiguration(filePath);
 
         SMAEngine smaEngine = runAnalysis();
 
@@ -17,10 +17,10 @@ public class TradingSystemFacade {
     }
 
     // Sets global system settings with Singleton config
-    private void setupConfiguration() {
+    private void setupConfiguration(String filePath) {
         TradingSystemConfig config = TradingSystemConfig.getInstance();
 
-        config.setFilePath("market_data.json");
+        config.setFilePath(filePath);
         config.setRiskLimit(5.0);
         config.setThresholdValue(0.0);
         config.setStrategyType("Short-Term");

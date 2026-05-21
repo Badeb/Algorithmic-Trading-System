@@ -26,6 +26,11 @@ class MarketEventPublisher {
     public void addObserver(MarketObserver observer) {
         observers.add(observer);
     }
+    public void removeObserver(MarketObserver observer) {
+        observers.remove(observer);
+    }
+
+
 
     public void notifyObservers(String message) {
         for (MarketObserver observer : observers) {

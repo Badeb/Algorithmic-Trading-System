@@ -119,6 +119,10 @@ class ATREngine extends AnalysisEngine{
     public double getAtrResult() {
         return atrResult;
     }
+    public double getFirstClose() {
+        if (data == null || data.isEmpty()) return Double.NaN;
+        return data.get(0).getClose();
+    }
 
     @Override
     protected void calculate() {
