@@ -10,6 +10,10 @@ abstract class AnalysisEngine {         // template class
         if (data == null || data.isEmpty()) return "";
         return data.get(data.size() - 1).getSymbol();
     }
+    public double getFirstClose() {
+        if (data == null || data.isEmpty()) return Double.NaN;
+        return data.get(0).getClose();
+    }
 
 
     public void analyse(){              // template method
